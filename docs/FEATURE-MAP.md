@@ -5,154 +5,37 @@ A complete map of every feature, command, and workflow in TubeBrain.
 ## Visual (Mermaid)
 
 ```mermaid
-mindmap
-  root((TubeBrain))
+flowchart TB
+    RT["📺 TubeBrain"]
 
-    Purpose
-      Problem
-        Forgetting videos
-        Messy auto-captions
-        Slow copy-paste
-      Solution
-        Clean captions
-        Pipe to LLM
-        Just ask
+    RT --> P["Purpose"]
+    P --> P1["Problem"]
+    P1 --> P1a["Forgetting videos"]
+    P1 --> P1b["Messy captions"]
+    P1 --> P1c["Slow copy-paste"]
+    P --> P2["Solution"]
+    P2 --> P2a["Clean captions"]
+    P2 --> P2b["Pipe to LLM"]
 
-    Install
-      Requirements
-        Python 3.11+
-        Tesseract OCR (optional)
-        No API keys
-      Steps
-        git clone
-        uv pip install -e .
-        tb doctor
+    RT --> W["Workflow"]
+    W --> W1["1. Record"]
+    W1 --> W1a["tb record <url>"]
+    W1 --> W1b["playlist auto-detect"]
+    W --> W2["2. Export"]
+    W2 --> W2a["paragraph | segments | srt | json"]
+    W --> W3["3. Ask"]
+    W3 --> W3a["summarize | ask | chat | mindmap"]
 
-    Core workflow
-      1 Record
-        Single video
-        Playlist (auto-detect)
-        Output: run_id
-      2 Export
-        paragraph
-        segments
-        srt
-        json
-        --lang
-        --audio
-        --all
-      3 Ask
-        tb summarize
-        tb ask
-        tb chat
-        raw pipe to claude
+    RT --> CM["Commands"]
+    CM --> CM1["record | process | search | runs | inspect | delete | doctor"]
+    CM --> CM2["export --fmt --all --lang --audio"]
+    CM --> CM3["summarize | ask | chat | mindmap --fmt"]
 
-    Commands
-      Download and inspect
-        record
-          URL or playlist
-          --lang
-        process
-          --fps
-          --ocr-lang
-          --skip-frames
-          --skip-ocr
-          --frames-only
-        runs
-        inspect
-        delete
-
-      Export
-        export
-          --fmt paragraph
-          --fmt segments
-          --fmt srt
-          --fmt json
-          --lang
-          --audio
-          --all
-          -o file
-
-      LLM
-        summarize
-        ask
-        chat
-        mindmap
-          --fmt mermaid (default)
-          --fmt markdown
-          --fmt json
-
-      Search
-        search
-          -r run_id
-          -t time range
-          --kind
-          --json
-
-      Utility
-        doctor
-
-    Output formats
-      paragraph
-        One clean block
-        Best for LLMs
-        Best for RAG
-      segments
-        Timestamped paragraphs
-        YouTube links
-        Best for reading
-      srt
-        Standard subtitles
-        Any video player
-      json
-        Metadata + segments
-        OCR included
-        Best for programs
-
-    Caption cleaning
-      Pipeline
-        Sort by timestamp
-        Merge within 3s
-        Strip leading overlap
-        Dedupe self-repeats
-        Remove adjacent dupes
-      Noise patterns
-        Progressive sentences
-        Self-repeating phrases
-        Adjacent duplicates
-
-    How it works
-      Record
-        yt-dlp downloads video
-        yt-dlp downloads captions
-      Process (optional)
-        OpenCV extracts frames
-        Tesseract runs OCR
-      Store
-        SQLite database
-        runs run_id folder
-        mp4, captions.json, frames/
-      Export
-        Cleaner transforms
-        LLM pipe
-
-    Storage
-      runs/
-        tubebrain.db
-        run_id/
-          title.mp4
-          captions.json
-          frames/ (optional)
-
-    Use cases
-      Summarize a video
-      Extract todos/steps
-      Find mentions of X
-      Get subtitles
-      Listen as audio
-      Search across library
-      Build knowledge base
-      Process playlists
+    RT --> F["Formats"]
+    F --> F1["paragraph → LLM / RAG"]
+    F --> F2["segments → reading"]
+    F --> F3["srt → subtitles"]
+    F --> F4["json → programs"]
 ```
 
 ## Text tree

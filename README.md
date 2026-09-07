@@ -241,7 +241,7 @@ tb export abc12345 --audio
 Turn a video into a structured mind map (uses Claude to organize topics):
 
 ```bash
-# Mermaid mindmap (renders in GitHub, VS Code, mermaid.live)
+# Default: Mermaid mind map (paste into mermaid.live or VS Code)
 tb mindmap abc12345
 
 # Nested markdown bullets (Obsidian, any markdown editor)
@@ -254,18 +254,8 @@ tb mindmap abc12345 --fmt json
 tb mindmap abc12345 -o mindmap.mmd
 ```
 
-Output (Mermaid) is a valid mind map you can paste anywhere Mermaid is supported. Example:
-```mermaid
-mindmap
-  root((Free GitHub Repos for AI Side Income))
-    AutoClip MVP
-      Video clip automation
-      Highlight extraction
-    Remotion
-      Template video creation
-      AI editing
-    ...
-```
+Output is valid Mermaid mind map syntax — paste it into any Mermaid renderer
+that supports `mindmap` (mermaid.live, VS Code with Mermaid extension).
 
 ### Search
 ```bash
