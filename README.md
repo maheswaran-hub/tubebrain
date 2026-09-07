@@ -34,41 +34,6 @@ No watching. No copy-paste. No API keys. Just questions and answers.
 
 ---
 
-## Quick example
-
-```bash
-# 1. Download a video
-$ tb record https://www.youtube.com/shorts/liOQbZln9xw
-Created run: 78079f52
-  Title:    6 github repos that make you money with AI
-  Duration: 0:52
-  Captions: 70 segments
-
-# 2. Summarize the video
-$ tb export 78079f52 --fmt paragraph | claude -p "summarize this"
-6 Free GitHub Repos for AI Side Income: AutoClip MVP (creators/streamers),
-Remotion (media companies/marketing), Open Hands (SMBs), Persona Live (AI
-influencers), Red Ink (Asian e-commerce), Mubu AI Novel (publishers)...
-
-# 3. Or ask specific questions
-$ tb export 78079f52 --fmt paragraph | claude -p "what repos are mentioned and who to sell them to"
-
-| Repo              | What it does                                  | Who to sell to                          |
-|-------------------|-----------------------------------------------|------------------------------------------|
-| AutoClip MVP      | Auto video clip cutting & highlight extraction | Creators, live streamers                 |
-| Remotion          | Template-based video automation               | Media companies, marketing firms         |
-| Open Hands        | Autonomous AI software developer              | Small & medium businesses                |
-| Persona Live      | Real-time AI portrait/avatar for live streams | Brands wanting AI influencers            |
-| Red Ink           | Text & image gen for Red Note                 | E-commerce sellers on Asian social nets  |
-| Mubu AI Novel     | Mass AI book/plot/novel writing               | Publishing platforms                     |
-
-# 4. Or get subtitles instead
-$ tb export 78079f52 --fmt srt -o captions.srt
-Written: captions.srt (1,396 chars)
-```
-
----
-
 ## What you get
 
 | Format | What it is |
